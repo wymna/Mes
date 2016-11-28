@@ -1,0 +1,65 @@
+<ion-view class="scroll-bg" cache-view="false">
+
+    <ion-nav-bar class="bar-dark">
+        <ion-nav-back-button class="button-clear">
+            <i class="ion-chevron-left"></i>事项提醒
+        </ion-nav-back-button>
+
+        <ion-nav-buttons side="right">
+          <button  ng-click="serch()" class="button button-icon button-clear ion-search">
+          </button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+  <div class="bar bar-subheader bar-dark"  ng-show="isshowsearch">
+
+    <label class="item item-input">
+      <i class="icon ion-search placeholder-icon"></i>
+      <input type="text" placeholder="请输入标题或时间或下发部门或类型" ng-model="data">
+
+    </label>
+
+  </div>
+    <ion-content scrollbar-x=false scrollbar-y=true>
+        <ion-refresher pulling-text="正在初始化数据..." on-refresh="refreshitemwakeup()">
+        </ion-refresher>
+      <div style="margin-bottom:18px"><p></p></div>
+        <ion-list>
+            <ion-item class="item-transparent" ng-repeat="message in itemwakeupMessages |filter:data">
+                <a class="list-link" href="#/itemwakeup/{{message.ID}}">
+                    <div class="secure-email-item">
+                        <div class="secure-email-image">
+                          <div class="secure-email-avatar {{ message.IsRead==1 ? 'viewed' : 'new' }}">
+                          </div>
+                            <image class="star" src="img/images/email/HTGAWM-star_pink.png"   ng-show="message.IsConfirm== '1'" />
+                        </div>
+
+                        <div class="secure-email-summary">
+                            <h1 class="normal-text">
+                               会议名称:{{ message.MeetingName }}
+                            </h1>
+                            <h2 class="normal-text">
+                                事项名称:{{ message.Event }}
+                            </h2>
+                            <h2 class="normal-text">
+                              计划完成时间: {{ message.CompleteTimeByPlan | date : 'yyyy-MM-dd hh:mm:ss'}} </h2>
+                            <h2 class="normal-text">
+                               会议内容:{{ message.Content }}
+                            </h2>
+
+                            <p class="normal-text">事项内容:{{ message.WorkContent }} </p>
+                        </div>
+                        <div style="clear:both;"></div>
+                    </div>
+                </a>
+            </ion-item>
+
+            <ion-infinite-scroll
+                    ng-if="canshowmore"
+                    on-infinite="loaditemwakeupMore()"
+                    distance="60%">
+            </ion-infinite-scroll>
+        </ion-list>
+    </ion-content>
+    <murder-footer></murder-footer>
+</ion-view>
+

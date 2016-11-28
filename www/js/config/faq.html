@@ -1,0 +1,55 @@
+<ion-view class="scroll-bg">
+
+  <ion-nav-bar class="bar-dark">
+    <ion-nav-back-button class="button-clear">
+      <i class="ion-chevron-left"></i>声音自定义设置
+    </ion-nav-back-button>
+  </ion-nav-bar>
+  <div class="content has-header">
+<ion-list  style="line-height: 40px;">
+      <ion-item class="item item-toggle scroll-bg" style="padding-left: 20px">
+       消息接收
+        <label class="toggle toggle-balanced">
+          <input type="checkbox" ng-model="messageu.checked" ng-change="messagec()">
+          <div class="track">
+            <div class="handle"></div>
+          </div>
+        </label>
+      </ion-item>
+
+
+      <ion-item class="item item-toggle scroll-bg" style="padding-left: 20px">
+        调度下达接收
+        <label class="toggle toggle-balanced">
+          <input type="checkbox" ng-model="xiada.checked" ng-change="xiadac()">
+          <div class="track">
+            <div class="handle"></div>
+          </div>
+        </label>
+      </ion-item>
+
+
+      <ion-item class=" item item-toggle scroll-bg" style="padding-left: 20px">
+       调度会议接收
+        <label class="toggle toggle-balanced">
+          <input type="checkbox"  ng-model="diaodu.checked" ng-change="diaoduc()">
+          <div class="track">
+            <div class="handle"></div>
+          </div>
+        </label>
+      </ion-item>
+
+
+      <ion-item class=" item item-toggle scroll-bg" style="padding-left: 20px">
+        警报接收
+        <label class="toggle toggle-balanced">
+          <input type="checkbox"  ng-model="jingbao.checked"  ng-change="jingbaoc()">
+          <div class="track">
+            <div class="handle"></div>
+          </div>
+        </label>
+      </ion-item>
+  </ion-list>
+  </div>
+  <murder-footer></murder-footer>
+</ion-view>

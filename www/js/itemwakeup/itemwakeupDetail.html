@@ -1,0 +1,49 @@
+<ion-view class="scroll-bg" cache-view="false">
+
+  <ion-nav-bar class="bar-dark">
+    <ion-nav-back-button class="button-clear">
+      <i class="ion-chevron-left"></i>会议追踪事项
+    </ion-nav-back-button>
+    <ion-nav-buttons side="right">
+      <button  ng-click="main()" class="button button-icon button-clear ion-ios-home-outline">
+      </button>
+  </ion-nav-bar>
+  <ion-content scrollbar-x=false>
+
+    <div class="secure-email-read">
+      <div class="secure-email-header">
+        <!-- Email header -->
+        <h1 class="normal-text">
+          会议标题：<span class="to-from-name">{{MeetingName}}</span>
+        </h1>
+        <h1 class="normal-text">
+          下发人：<span class="to-from-name">{{name}}</span>
+        </h1>
+        <h1 class="normal-text">
+          事项名称： {{WorkContent}}
+        </h1>
+        <h1 class="normal-text">
+          计划完成时间：{{BeginTime|date : 'yyyy-MM-dd hh:mm:ss'}}
+        </h1>
+
+      </div>
+
+      <div class="col">
+        <div class="item item-input-inset">
+          <label class="item-input-wrapper">
+            <textarea name="textarea" cols="10" rows="5" name="content"  placeholder="实际情况" ng-model="content"></textarea>
+            <div style="clear:both;"></div>
+          </label>
+        </div>
+      </div>
+
+
+    <div class="button-bar">
+      <button class="button button-positive" ng-click="huifuc(content)">回复</button>
+    </div>
+
+    </div>
+
+  </ion-content>
+  <murder-footer></murder-footer>
+</ion-view>

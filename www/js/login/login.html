@@ -1,0 +1,43 @@
+<ion--view class="scroll-bg login">
+
+    <ion-content class="login-content" ng-controller="loginCtrl"
+                 scrollbar-x=false scrollbar-y=false>
+        <div class="game-logo-container">
+            <image class="game-logo" src="img/images/main menu/HTGAWM-logo.png"/>
+        </div>
+        <form class="manual-login" name="loginForm"
+              ng-submit="login(user)">
+            <div class="list">
+                <div class="input-container name-input">
+                    <label>
+                        <!--<input type="text" ng-model="user.name"-->
+                               <!--name="userName" placeholder="请输入用户名"/>-->
+                        <input type="text" ng-model="user.name" placeholder="请输入用户名"/>
+                    </label>
+                </div>
+                <div class="input-container password-input">
+                    <label>
+                        <input type="password" ng-model="user.password"
+                               name="userPassword"
+                                placeholder="请输入密码"/>
+
+                    </label>
+                </div>
+                <div>
+                    <button class="login-button" type="submit">登录</button>
+
+                </div>
+
+            </div>
+        </form>
+    </ion-content>
+    <div class="bar bar-footer scroll-bg" >
+        <div class="title"> &copy;2015 版权所有 </div>
+      <div class="bar bar-subfooter scroll-bg">
+        <div class="title">杭州和利时自动化有限公司版本v1.0</div>
+
+    </div>
+
+
+</ion--view>
+

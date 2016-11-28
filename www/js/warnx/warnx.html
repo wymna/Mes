@@ -1,0 +1,48 @@
+<ion-view class="scroll-bg" cache-view="false">
+  <ion-nav-bar class="bar-dark">
+    <ion-nav-back-button class="button-clear">
+      <i class="ion-chevron-left"></i>报警实时通知
+    </ion-nav-back-button>
+  </ion-nav-bar>
+
+  <ion-content>
+
+    <ion-list>
+      <ion-item class="item-transparent"  ng-repeat="message in warnMessages">
+        <a class="list-link">
+          <div class="secure-email-item">
+            <div class="secure-email-image">
+              <div>
+                <img src="img/baojing/sta_alarming.png" width="30"  ng-show="message.State == '2'" />
+                <img src="img/baojing/chuli.png" width="30"  ng-show="message.State == '3'" />
+                <img src="img/baojing/autohuifu.png" width="30"  ng-show="message.State == '1'" />
+              </div>
+            </div>
+            <div class="secure-email-summary">
+              <h1 class="normal-text">
+               位号： {{message.ID}}
+              </h1>
+
+              <div class="normal-text">警报属性名：{{message.AttrName}}</div>
+
+              <h2 class="normal-text">
+               警报级别： {{message.AlarmLevel}}
+              </h2>
+              <h2 class="normal-text">
+               警报值： {{message.AlarmValue}}
+              </h2>
+
+              <p class="date">发送时间: {{message.EndTime | date : 'yyyy-MM-dd hh:mm:ss'}} </p>
+
+
+            </div>
+            <div style="clear:both;"></div>
+          </div>
+        </a>
+      </ion-item>
+
+
+    </ion-list>
+  </ion-content>
+  <murder-footer></murder-footer>
+</ion-view>

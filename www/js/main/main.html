@@ -1,0 +1,86 @@
+
+<ion-view id="main-menu" class="scroll-bg main-menu">
+  <ion-content scrollbar-x=false scrollbar-y=false class="center"
+               has-bouncing="false">
+
+    <div class="mainmenu-header">
+      <image class="attorneys-logo" src="img/images/main menu/HTGAWM-logo.png"/>
+      <div class="title">
+        <!--<h1 class="internal">Mes</h1>-->
+        <h1 class="comms">能源管理系统</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <a ng-click="me()" class="app-button">
+          <div class="app-button-icon button-email"
+               ng-class="{unread: unreadMail > 0}">
+            <div class="unread-count">
+              {{unreadMail}}
+            </div>
+          </div>
+          <div class="app-button-label">
+            消息通知
+          </div>
+        </a>
+      </div>
+      <div class="col">
+        <a href="#/schedule" class="app-button">
+          <div class="app-button-icon button-voicemail"
+               ng-class="{unread: unreadVoice > 0}">
+            <div class="unread-count">
+              {{unreadVoice}}
+            </div>
+          </div>
+          <div class="app-button-label">
+            调度指令
+          </div>
+        </a>
+      </div>
+      <div class="col">
+        <a href="#/warn" class="app-button">
+          <div class="app-button-icon button-messaging"
+               ng-class="{unread: unreadChat > 0}">
+            <div class="unread-count">
+              {{unreadChat}}
+            </div>
+          </div>
+          <div class="app-button-label">
+            报警查询
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <a href="#/warnx" class="app-button">
+          <div class="app-button-icon button-notes">
+            <div class="unread-count">
+            </div>
+          </div>
+          <div class="app-button-label">
+            报警实时查询
+          </div>
+        </a>
+      </div>
+      <div class="col">
+        <a href="#/itemwakeup" class="app-button">
+          <div class="app-button-icon button-employeeid"
+               ng-class="{unread: unreadItem > 0}">
+            <div class="unread-count">
+              {{unreadItem}}
+            </div>
+          </div>
+          <div class="app-button-label">
+            事项提醒
+          </div>
+        </a>
+      </div>
+
+      <div class="col">
+      </div>
+
+    </div>
+  </ion-content>
+  <murder-footer></murder-footer>
+</ion-view>

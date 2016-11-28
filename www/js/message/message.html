@@ -1,0 +1,70 @@
+<ion-view class="scroll-bg" cache-view="false">
+
+    <ion-nav-bar class="bar-dark">
+        <ion-nav-back-button class="button-clear">
+            <i class="ion-chevron-left"></i>消息通知
+        </ion-nav-back-button>
+
+        <ion-nav-buttons side="right">
+            <button  ng-click="serch()" class="button button-icon button-clear ion-search">
+            </button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+  <div class="bar bar-subheader bar-dark"  ng-show="isshowsearch">
+      <label class="item item-input">
+        <i class="icon ion-search placeholder-icon"></i>
+        <input type="text" placeholder="请输入标题或时间" ng-model="data">
+      </label>
+  </div>
+
+
+    <ion-content>
+        <ion-refresher pulling-text="正在初始化数据..." on-refresh="refresh()">
+        </ion-refresher>
+       <div style="margin-bottom:18px"><p></p></div>
+        <ion-list>
+            <ion-item class="item-transparent" ng-repeat="message in emailMessages |filter:data ">
+                <a class="list-link" ng-click="updateview(message.ID)">
+                    <div class="secure-email-item">
+                        <div class="secure-email-image">
+                            <div class="secure-email-avatar {{ message.IsRead=='1' ? 'viewed' : 'new' }}">
+                            </div>
+                        </div>
+                        <div class="secure-email-summary">
+                            <h1 class="normal-text">
+                                {{ message.Title }}
+                            </h1>
+                          <h2 class="normal-text">
+                            发送时间：{{ message.SendTime |date : 'yyyy-MM-dd hh:mm:ss'}}
+                          </h2>
+
+                          <expander class='expander' expander-title={{message.Content}}>
+                            <textarea cols="10" rows="5" style="background-color:#7091BD;color:white" ng-readonly="true">{{message.Content}}</textarea>
+                          </expander>
+
+
+
+
+                          <!--<div class="points-breakdown-toggle">-->
+
+                            <!--<p class="normal-text">{{ message.Content | limitTo : 40 }}......</p>-->
+                              <!--<a class="toggle-button"ng-click="showPointsBreakdown()" ng-show="!pointsBreakdownVisible">+</a>-->
+                              <!--<a class="toggle-button"ng-click="hidePointsBreakdown()" ng-show="pointsBreakdownVisible">-</a>-->
+                            <!--</p>-->
+                          <!--</div>-->
+
+                        </div>
+                        <div style="clear:both;"></div>
+                    </div>
+                </a>
+            </ion-item>
+
+        <ion-infinite-scroll
+                ng-if="canshowmore"
+                on-infinite="loadMore()"
+                distance="10%">
+        </ion-infinite-scroll>
+    </ion-content>
+    </ion-list>
+    <murder-footer></murder-footer>
+</ion-view>

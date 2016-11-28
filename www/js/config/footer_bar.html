@@ -1,0 +1,37 @@
+<ion-footer-bar align-title="left" class="footer-bar" >
+	<div class="footer-content">
+		<div class="user-avatar">
+			<img class="user-avatar-img"
+				 src="{{ user.facebookID ? 'http://graph.facebook.com/' + user.facebookID + '/picture?height=100&width=100' : 'img/space.png' }}" /><!-- TODO: User Avatar Image -->
+		</div>
+		<div class="footer-contents">
+			<div class="user-name">
+				{{name}}
+			</div>
+			<div class="footer-buttons">
+                <!-- wang  页面显示弹出菜单事件-->
+				<a class="footer-button burger-menu" ng-click="showOptionsMenu($event)"></a>
+			</div>
+		</div>
+	</div>
+</ion-footer-bar>
+
+<!--弹出框内容设定-->
+<script id="config/main_menu_options.html" type="text/ng-template">
+	<ion-popover-view class="burger-menu">
+		<ion-content scroll="false">
+
+			<div class="row">
+				<a class="list-link logout" nav-transition="none"
+				   ng-click="logout()">退出</a>
+			</div>
+			<div class="row">
+				<a class="list-link" ng-click="dismissAndGoto('faq')">设置</a>
+			</div>
+			<div class="row">
+				<a class="list-link" ng-click="dismissAndGoto('instructions')">关于系统</a>
+			</div>
+
+		</ion-content>
+	</ion-popover-view>
+</script>

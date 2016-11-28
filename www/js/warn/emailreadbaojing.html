@@ -1,0 +1,77 @@
+<ion-view class="scroll-bg">
+
+  <ion-nav-bar class="bar-dark">
+    <ion-nav-back-button class="button-clear">
+      <i class="ion-chevron-left"></i>报警查询
+    </ion-nav-back-button>
+    <ion-nav-buttons side="right">
+    <button  ng-click="main()" class="button button-icon button-clear ion-ios-home-outline">
+    </button>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+
+  <ion-content scrollbar-x=false>
+
+    <div class="secure-email-read">
+      <div class="secure-email-header">
+        <!-- Email header -->
+        <p class="normal-text">
+          分组：<span class="to-from-name">{{PCode}}</span>
+
+        </p>
+        <p class="normal-text">
+          警报属性名：<span class="to-from-name">{{AttrName}}</span>
+        </p>
+        <p class="normal-text">
+          警报级别名：<span class="to-from-name">{{LevelName}}</span>
+        </p>
+        <h1 class="title">
+          警报级别：{{AlarmLevel}}
+        </h1>
+        <h1 class="title">
+          警报值：{{AlarmValue}}
+        </h1>
+
+        <h1 class="title">
+          流程图名：{{deplyname}}
+        </h1>
+
+      </div>
+    </div>
+    <div class="email-body" compile-html="htmlEmailBody |
+      insertLinks | callbackLinks:'onBodyLinkClick'">
+
+    </div>
+    <div class="login-sign-up" >
+      <div class="employee-details">
+
+
+        <div class="row">
+          <div class="col col-10 ion-android-clipboard">
+            <!--<image src="img/images/main menu/HTGAWM-voicemail.png" width="20" style="margin:auto;"/>-->
+          </div>
+          <div class="col">
+            <div class="item item-input-inset">
+              <label class="item-input-wrapper">
+                <textarea type="textarea" cols="10" rows="5" name="usercontent"  placeholder="处理内容"  ng-model="usercoub"></textarea>
+
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="button-bar">
+
+          <button class="button button-positive" ng-click="register4(usercoub)">回复</button>
+
+
+        </div>
+
+
+
+      </div>
+
+    </div>
+  </ion-content>
+  <murder-footer></murder-footer>
+</ion-view>
